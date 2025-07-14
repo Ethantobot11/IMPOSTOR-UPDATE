@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="VS Impostor: V4" file="VS Impostor" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.7" company="ShadowMario" />
+	<app title="VS Impostor: V4" file="VS Impostor" packageName="com.vsimportorv4" package="com.vsimpostorv4" main="Main" version="0.2.7" company="VsImpostor V4" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -139,6 +139,86 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+		<!--Needed for better error reporting with hscript-->
+	<define name="hscriptPos"/>
+
+	<!--Tracy profiler stuff-->
+	<section if="FEATURE_DEBUG_TRACY">
+		<haxedef name="HXCPP_TELEMETRY"/>
+		<haxedef name="HXCPP_TRACY"/>
+		<haxedef name="HXCPP_TRACY_MEMORY"/>
+		<haxedef name="HXCPP_TRACY_ON_DEMAND"/>
+		<haxedef name="absolute-paths"/>
+		<!-- <haxedef name="HXCPP_TRACY_INCLUDE_CALLSTACKS"/> -->
+	</section>
+
+	<!--Enable for better crash handling/reporting-->
+	<haxedef name="CRASH_HANDLER" if="desktop release"/>
+
+	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
+
+	<!--Disables all tracing abilities. Enable this for a small performance improvement-->
+		
+	<!-- <define name="DISABLE_TRACES" if="desktop release"/> -->
+
+	<!--Needed for lua-->
+	<haxedef name="NO_PRECOMPILED_HEADERS" if="LUA_ALLOWED"/>
+
+	<!--Remove the legacy health system-->
+	<haxedef name="FLX_NO_HEALTH" />
+		<!--Disable the Flixel core focus lost screen-->
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+
+	<!-- Show debug traces for hxCodec -->
+	<haxedef name="HXC_DEBUG_TRACE" if="debug" />
+
+	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<!--Enable this for Nape release builds for a serious peformance improvement-->
+	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<!--Used for Crash handler-->
+	<haxedef name="HXCPP_CHECK_POINTER" />
+	<haxedef name="HXCPP_STACK_LINE" />
+	<haxedef name="HXCPP_STACK_TRACE" />
+	<haxedef name="HXCPP_CATCH_SEGV" />
+	<haxedef name="HXCPP_DEBUG_LINK" />
+
+	<!-- Do whatever you want I'm tired uninstall and install everytime -->
+	<certificate path="key.keystore" password="psychonline" alias="psychonlineport" alias-password="psychonline" if="android" unless="debug" />
+
+	<!-- Category Type for Apple Systems -->
+	<config:ios category_type="public.app-category.music-games" />
+	<config:mac category_type="public.app-category.music-games" />
+
+	<!-- Allow Access to Engine Files in Mobile -->
+	<haxedef name="SHARE_MOBILE_FILES" if="mobile" />
+
+	<haxedef name="message.reporting" value="pretty" />
+	<haxedef name='no-deprecation-warnings' />
+
+	<!--Avoid memory leaks with for loops in HScript-->
+	<haxedef name="loop_unroll_max_cost" value="25" />
+	<haxedef name="DISABLED_MACRO_SUPERLATIVE" if="android" />
+
+	<!--Macro fixes-->
+	<haxeflag name="--macro" value="allowPackage('flash')" />
+	<haxeflag name="--macro" value="include('my.pack')" />
+
+	<section if='debugmon'>
+		<haxeflag name="--macro" value="addGlobalMetadata('online', '@:build(online.backend.MonitorMacro.build())')" />
+		<haxeflag name="--macro" value="addGlobalMetadata('states', '@:build(online.backend.MonitorMacro.build())')" />
+		<haxeflag name="--macro" value="addGlobalMetadata('flixel', '@:build(online.backend.MonitorMacro.build())')" />
+		<haxeflag name="--macro" value="addGlobalMetadata('backend', '@:build(online.backend.MonitorMacro.build())')" />
+
+	<!--For haxe 4.3.0 and newer cleaner error reporting-->
+	<haxedef name="message.reporting" value="pretty" />
+
+	<!--For haxe 4.3.0 and newer disables warnings-->
+	<haxedef name="no-deprecation-warnings"/>
 
 	<!-- _________________________________ Custom _______________________________ -->
 
