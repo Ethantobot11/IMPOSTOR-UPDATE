@@ -26,8 +26,6 @@ import sys.FileSystem;
 class PlayVideoState extends MusicBeatState
 {
 
- public static var videoID:String = 'credits3';
-
  override function create()
  {
   super.create();
