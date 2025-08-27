@@ -138,4 +138,6 @@ class PlayVideoState extends MusicBeatState
 			   endSong();
 		   else
 			   startCountdown();
-	    }
+	     }
+    }
+}
