@@ -15,6 +15,7 @@ import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import WeekData;
 import openfl.utils.Assets as OpenFlAssets;
+import VideoSprite
 
 using StringTools;
 
