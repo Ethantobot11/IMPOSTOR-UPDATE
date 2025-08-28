@@ -76,4 +76,4 @@ class PlayVideoState extends MusicBeatState
         else
             startCountdown();
     }
-}
+} // <--- only one closing brace for the class
