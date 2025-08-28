@@ -40,14 +40,11 @@ class PlayVideoState extends MusicBeatState
  override function update(elapsed:Float)
  {
   super.update(elapsed);
- }
 
 
       if(SScript.global.exists(scriptFile))
     doPush = false;
   }
-  #end
- }
 
  public function getLuaObject(tag:String, text:Bool=true):FlxSprite {
   #if LUA_ALLOWED
