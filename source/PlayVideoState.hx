@@ -72,9 +72,9 @@ class PlayVideoState extends MusicBeatState
 
     function startAndEnd()
     {
-        if (endingSong)
-            endSong();
+        if (PlayState.endingSong)
+            PlayState.instance.endSong();
         else
-            startCountdown();
-    }
-} // <--- only one closing brace for the class
+            PlayState.instance.startCountdown();
+     }  
+}
