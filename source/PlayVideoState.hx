@@ -26,7 +26,7 @@ import sys.FileSystem;
 class PlayVideoState extends MusicBeatState
 {
 
- overide function create(
+ overide function create()
  {
         super.create();
         startVideo(videoID);
