@@ -10,6 +10,7 @@ import sys.FileSystem;
 
 class PlayVideoState extends MusicBeatState
 {
+    public var videoID:String = "credits3";
     public var videoCutscene:VideoSprite = null;
 
     override function create()
