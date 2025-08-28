@@ -26,17 +26,16 @@ import sys.FileSystem;
 class PlayVideoState extends MusicBeatState
 {
 
- override function create()
+ overide function create(
  {
-  super.create();
-
+        super.create();
         startVideo(videoID);
-    }
+ }
 
-   function goToMenu(){
+ function goToMenu(){
         LoadingState.loadAndSwitchState(new AmongStoryMenuState(), true);
   FlxG.sound.playMusic(Paths.music('freakyMenu'));
-   }
+ }
 
  override function update(elapsed:Float)
  {
