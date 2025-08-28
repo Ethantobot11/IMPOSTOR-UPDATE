@@ -68,6 +68,7 @@ class PlayVideoState extends MusicBeatState
         startAndEnd();
         #end
         return null;
+    }
 
     function startAndEnd()
     {
