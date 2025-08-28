@@ -40,30 +40,7 @@ class PlayVideoState extends MusicBeatState
  override function update(elapsed:Float)
  {
   super.update(elapsed);
-
-
-      if(SScript.global.exists(scriptFile))
-    doPush = false;
-  }
-
- public function getLuaObject(tag:String, text:Bool=true):FlxSprite {
-  #if LUA_ALLOWED
-  if(modchartSprites.exists(tag)) return modchartSprites.get(tag);
-  if(text && modchartTexts.exists(tag)) return modchartTexts.get(tag);
-  if(variables.exists(tag)) return variables.get(tag);
-  #end
-  return null;
- }
-
- function startCharacterPos(char:Character, ?gfCheck:Bool = false) {
-  if(gfCheck && char.curCharacter.startsWith('gf')) { //IF DAD IS GIRLFRIEND, HE GOES TO HER POSITION
-   char.setPosition(GF_X, GF_Y);
-   char.scrollFactor.set(0.95, 0.95);
-   char.danceEveryNumBeats = 2;
-  }
-  char.x += char.positionArray[0];
-  char.y += char.positionArray[1];
- }
+ }
 
  public var videoCutscene:VideoSprite = null;
  public function startVideo(name:String, forMidSong:Bool = false, canSkip:Bool = true, loop:Bool = false, playOnLoad:Bool = true)
