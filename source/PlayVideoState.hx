@@ -68,12 +68,4 @@ class PlayVideoState extends MusicBeatState
         #end
         return null;
     }
-
-    function startAndEnd()
-    {
-        if (endingSong)
-            endSong();
-        else
-            startCountdown();
-    }
 }
